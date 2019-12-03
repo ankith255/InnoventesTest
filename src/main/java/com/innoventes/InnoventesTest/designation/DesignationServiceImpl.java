@@ -3,36 +3,40 @@ package com.innoventes.InnoventesTest.designation;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class DesignationServiceImpl implements DesignationService {
 
+	@Autowired
+	private DesignationRepository designationRepository;
+	
 	@Override
 	public void addDesignation(Designation designation) {
-		// TODO Auto-generated method stub
-
+		designationRepository.save(designation);
 	}
 
 	@Override
 	public Optional<Designation> getDesignation(Integer designationId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return designationRepository.findById(designationId);
 	}
 
 	@Override
 	public List<Designation> getDesignations() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return (List<Designation>) designationRepository.findAll();
 	}
 
 	@Override
-	public void updateDesignation(Integer employeeId, Designation designation) {
-		// TODO Auto-generated method stub
-
+	public void updateDesignation(Integer designationId, Designation designation) {
+		designationRepository.save(designation);
 	}
 
 	@Override
-	public void deleteDesignation(Integer employeeId) {
-		// TODO Auto-generated method stub
-
+	public void deleteDesignation(Integer designationId) {
+		designationRepository.deleteById(designationId);
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.innoventes.InnoventesTest.designation;
 
-public interface DesignationRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface DesignationRepository extends CrudRepository<Designation,Integer> {
 
 }
